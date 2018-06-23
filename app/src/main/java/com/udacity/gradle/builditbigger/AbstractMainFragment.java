@@ -11,8 +11,6 @@ import android.widget.ProgressBar;
 
 public abstract class AbstractMainFragment extends Fragment{
 
-    private ProgressBar progressBar;
-
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -25,12 +23,9 @@ public abstract class AbstractMainFragment extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        progressBar = view.findViewById(R.id.progressBar);
     }
 
     public void setJokeButtonLoading(boolean isLoading) {
-        progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
     }
 
 
