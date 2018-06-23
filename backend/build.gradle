@@ -20,6 +20,7 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 
+
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 

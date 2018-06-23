@@ -14,17 +14,12 @@ import java.io.IOException;
 
 public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "AsyncTaskActivity";
-
     private MyApi myApiService;
-
     private final Callback callback;
 
     public interface Callback {
         void onResult(String joke);
-
         void onFailed();
-
         void onCancelled();
     }
 
@@ -54,7 +49,6 @@ public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
         try {
             return myApiService.getJoke().execute().getJoke();
         } catch (IOException e) {
-            Log.e(TAG, e.getMessage());
             return "";
         }
     }
@@ -71,14 +65,12 @@ public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
     @Override
     protected void onCancelled(String s) {
         super.onCancelled(s);
-
         callback.onCancelled();
     }
 
     @Override
     protected void onCancelled() {
         super.onCancelled();
-
         callback.onCancelled();
     }
 }
