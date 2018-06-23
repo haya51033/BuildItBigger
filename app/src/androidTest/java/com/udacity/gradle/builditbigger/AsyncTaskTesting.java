@@ -5,12 +5,9 @@ import android.os.AsyncTask;
 import android.support.v4.util.Pair;
 import android.test.InstrumentationTestCase;
 
-import org.mockito.Mockito;
-
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import static org.mockito.Mockito.verify;
 
 public class AsyncTaskTesting extends InstrumentationTestCase{
 
