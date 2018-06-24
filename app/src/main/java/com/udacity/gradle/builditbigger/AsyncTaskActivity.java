@@ -1,6 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,7 +26,9 @@ public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
         void onResult(String joke);
         void onFailed();
         void onCancelled();
+
     }
+
 
     public AsyncTaskActivity(Callback callback) {
         this.callback = callback;

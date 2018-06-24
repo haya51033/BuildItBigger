@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
         android:onClick="tellJoke"
+        android:id="@+id/tellJokeButton"
         android:text="@string/button_text" />
 
 
