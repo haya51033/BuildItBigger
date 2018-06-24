@@ -21,4 +21,7 @@ allprojects {
         jcenter()
         google()
     }
+    ext {
+        androidSupportVersion = "27.1.1"
+    }
 }

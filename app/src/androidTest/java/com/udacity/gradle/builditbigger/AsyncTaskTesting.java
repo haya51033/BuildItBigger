@@ -1,47 +1,48 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.support.v4.util.Pair;
+import android.os.SystemClock;
+import android.support.test.runner.AndroidJUnit4;
 import android.test.InstrumentationTestCase;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 
+@RunWith(AndroidJUnit4.class)
 public class AsyncTaskTesting extends InstrumentationTestCase{
+    String jokeResult;
+    Boolean jokeState = false;
 
 
-    public void testVerifyEchoResponse() throws Throwable {
-
-        final CountDownLatch latch = new CountDownLatch(1);
-
-        final AsyncTask<Pair<Context, String>, Void, String> AsyncTask =
-                new AsyncTask<Pair<Context, String>, Void, String>(){
-
-                    @Override
-                    protected String doInBackground(Pair<Context, String>... pairs) {
-                        return null;
-                    }
-
-                    @Override
-                    protected void onPostExecute(String result) {
-                        super.onPostExecute(result);
-
-                        latch.countDown();
-                    }
-                };
-
-        runTestOnUiThread(new Runnable() {
-
+    public AsyncTaskTesting(){}
+    @Test
+    public void TestJokeResult(){
+        new AsyncTaskActivity(new AsyncTaskActivity.Callback() {
+            String joke;
             @Override
-            public void run() {
-                AsyncTask.execute();
+            public void onResult(String joke) {
+                this.joke = joke;
+                jokeResult = joke;
+
+                if(jokeResult!= null){
+                    jokeState = true;
+                }
             }
-        });
+            @Override
+            public void onFailed() { }
+            @Override
+            public void onCancelled() { }
+        }).execute();
 
-        latch.await(30, TimeUnit.SECONDS);
+        SystemClock.sleep(1000);
+        SystemClock.sleep(1000);
+        SystemClock.sleep(1000);
+        SystemClock.sleep(1000);
 
-        assertTrue("Testing Done!", true);
+        assertNotNull("joke is null", jokeResult);
+        assertFalse("joke is empty", jokeResult.isEmpty());
+
+        //if jokeState = true --> then Joke is not empty!
+        assertTrue("Testing Done! and Joke is not empty", jokeState);
     }
 }

@@ -30,9 +30,12 @@ public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
     }
 
 
+
     public AsyncTaskActivity(Callback callback) {
         this.callback = callback;
     }
+
+
 
     @Override
     protected void onPreExecute() {
@@ -60,12 +63,15 @@ public class AsyncTaskActivity extends AsyncTask<Void, Void, String> {
         }
     }
 
+
     @Override
     protected void onPostExecute(String result) {
         if (TextUtils.isEmpty(result)) {
             callback.onFailed();
-        } else {
-            callback.onResult(result);
+        }
+        else {
+            String ss = result;
+            callback.onResult(ss);
         }
     }
 

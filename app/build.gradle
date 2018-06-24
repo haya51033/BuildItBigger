@@ -54,13 +54,13 @@ dependencies {
 
     implementation project(':jokedisplayer')
 
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:$androidSupportVersion"
     testImplementation 'junit:junit:4.12'
 
-    implementation 'com.android.support:design:27.1.1'
+    implementation "com.android.support:design:$androidSupportVersion"
 
-    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support:support-media-compat:27.1.1'
+    implementation "com.android.support:support-v4:$androidSupportVersion"
+    implementation "com.android.support:support-media-compat:$androidSupportVersion"
 
 
     freeImplementation 'com.google.android.gms:play-services-ads:15.0.0'
