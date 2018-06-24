@@ -10,13 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.android.jokedisplayer.JokeDisplayerActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-
 
     // The Idling Resource which will be null in production.
 
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+
 
         final AbstractMainFragment fragment = (AbstractMainFragment) getSupportFragmentManager()
         .findFragmentById(R.id.fragment);
